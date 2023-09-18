@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code Dynamo</title>
+    <!-- Use the correct Bootstrap version -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+
+        /* Style the navigation bar */
+        .navbar {
+            background: linear-gradient(to left, #007BFF, rgba(205, 155, 255, 0.8)); /* Gradient background */
+            padding: 10px 20px; /* Adjusted padding */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
+        }
+
+        .top-label {
+            font-family: "Arial", sans-serif; /* Change the font family */
+            color: #fff; /* Font color to white */
+            text-decoration: none;
+            outline: none;
+        }
+
+        /* Style the navigation links */
+        .navbar-nav {
+            margin-left: auto; /* Align links to the right */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: bold; /* Make the font bold */
+            color: #fff; /* Font color to white */
+            margin-left: 20px; /* Add spacing between the links */
+            outline: none;
+        }
+
+        /* Remove the button border */
+        .navbar-toggler {
+            border: none;
+        }
+
+        /* Add Bootstrap styling (optional) */
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Darker background below the navbar */
+        .page-content {
+            background: linear-gradient(to bottom, #004BA0, rgba(0, 0, 0, 0.1)); /* Gradient background */
+            padding-top: 60px; /* Add padding for content below the fixed navbar */
+            min-height: calc(100vh - 70px); /* Calculate minimum height for content */
+        }
+    </style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="top-label" href="/">DynamoCode</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> <!-- Align links to the right -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('home.index')}}">Home</a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('home.index')}}#about">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('home.index')}}#our-services">Our Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('home.index')}}#contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/blog">Blog</a>
+            </li>
+        </ul>
+    </div>
+   </nav>
+
+   <div class="page-content">
+       {% block body %}
+       {% endblock %}
+   </div>
+</body>
+</html>

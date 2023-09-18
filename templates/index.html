@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <title>Home</title>
+    <style>
+    	@keyframes swipeIn {
+            from {
+                transform: translateX(-100%); /* Start off-screen to the left */
+            }
+            to {
+                transform: translateX(0); /* End at the original position */
+            }
+        }
+        /* Style the navigation bar */
+        .navbar {
+            background: linear-gradient(to left, #007BFF, rgba(205, 155, 255, 0.8)); /* Single gradient background */
+            padding: 10px 20px; /* Adjusted padding for responsiveness */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
+        }
+
+        .top-label {
+            font-family: "Arial", sans-serif; /* Change the font family */
+            color: #fff; /* Font color to white */
+            text-decoration: none;
+            outline: none;
+        }
+
+        /* Style the navigation links */
+        .navbar-nav {
+            margin-left: auto; /* Align links to the right */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: bold; /* Make the font bold */
+            color: #fff; /* Font color to white */
+            margin-left: 20px; /* Add spacing between the links */
+            outline: none;
+        }
+
+        /* Remove the button border */
+        .navbar-toggler {
+            border: none;
+        }
+
+        /* Add Bootstrap styling (optional) */
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Style the hero section */
+        .hero {
+        	animation: swipeIn 1s ease;
+            background: linear-gradient(to left, #007BFF, rgba(205, 155, 255, 0.8)); /* Single gradient background */
+            text-align: center;
+            color: #fff;
+            padding: 80px 0; /* Adjusted padding for responsiveness */
+            margin-top: 70px; /* Push down hero to align with navbar */
+        }
+
+        .quote {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .blog-button {
+            padding: 10px 20px;
+            background-color: #007BFF; /* Button background color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: swipeIn 1s ease;
+        }
+
+        /* Style the rounded image */
+        .rounded-image {
+            width: 210px; /* 40% larger */
+            height: 210px; /* 40% larger */
+            border-radius: 50%;
+            border: 4px solid #fff; /* Add a white border */
+            margin: 20px auto; /* Center the image horizontally */
+            animation: swipeIn 1s ease;
+        }
+
+        .rounded-image-a {
+            width: 410px; /* 40% larger */
+            height: 410px; /* 40% larger */
+            border-radius: 50%;
+            border: 1px solid #fff; /* Add a white border */
+            margin: 20px auto; /* Center the image horizontally */
+        }
+
+        .modern-hr {
+        	animation: swipeIn 1s ease;
+            background-color: blue;
+            height: 2px; /* Adjust the height as needed */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+            border-radius: 5px; /* Add border radius for a modern look */
+        }
+
+        /* Style the About Me section */
+        #about.hero {
+        	animation: swipeIn 1s ease;
+            background: linear-gradient(to left, #007BFF, rgba(205, 155, 255, 0.8)); /* Single gradient background */
+            text-align: center;
+            color: #fff;
+            padding: 50px 0; /* Adjusted padding for responsiveness */
+            margin-top: 60px; /* Push down the About Me section to align with navbar */
+        }
+        /* Add space between the dropdowns */
+        #our-services.hero{
+            animation: swipeIn 1s ease;
+            background: linear-gradient(to left, #007BFF, rgba(205, 155, 255, 0.8)); /* Single gradient background */
+            text-align: center;
+            color: #fff;
+            padding: 50px 0; /* Adjusted padding for responsiveness */
+            margin-top: 60px;
+
+        }
+		.question-card {
+		    margin-bottom: 20px;
+		}
+
+		/* Style the accordion buttons */
+		.question-btn {
+		    text-align: left;
+		    font-size: 18px;
+		    font-weight: bold;
+		    color: #333; /* Change the color to your preference */
+		}
+
+		/* Style the accordion card body */
+		.card-body {
+			animation: swipeIn 1s ease;
+		    font-size: 16px;
+		    color: #555; /* Change the color to your preference */
+		}
+
+		/* Reduce the image size */
+		
+
+		/* Style the introductory text */
+		.intro-text {
+			animation: swipeIn 1s ease;
+		    font-size: 20px;
+		    font-weight: bold;
+		    color: #007BFF; /* Change the color to your preference */
+		    margin-bottom: 20px;
+		}
+		/* Remove underline from the dropdown buttons */
+		.question-btn {
+			animation: swipeIn 1s ease;
+		    text-align: left;
+		    font-size: 18px;
+		    font-weight: bold;
+		    color: #333; /* Change the color to your preference */
+		    text-decoration: none !important; /* Remove underline */
+		    background: url('dropdown-icon.png') no-repeat right center; /* Add a dropdown button image */
+		    padding-right: 30px; /* Add space for the dropdown button image */
+		}
+		.swipe{
+			animation: swipeIn 1s ease;
+		}
+
+		/* Style the accordion card body */
+		.card-body {
+		    font-size: 16px;
+		    color: #555; /* Change the color to your preference */
+		}
+
+		/* Reduce the image size */
+		.rounded-image-a {
+	    width: 300px; /* Adjust the width as needed */
+	    height: 300px; /* Adjust the height as needed */
+	    border: 1px solid #fff; /* Add a white border */
+	    margin: 20px auto; /* Center the image horizontally */
+	    position: relative; /* Set position to relative for pseudo-element */
+		}
+
+		.rounded-image-a::after {
+		animation: swipeIn 1s ease;
+	    content: ""; /* Create a pseudo-element */
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 30%; /* Adjust the height of the fade as needed */
+	    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff); /* Linear gradient background for fading effect */
+	}
+
+
+
+
+
+
+
+
+		/* Style the introductory text */
+		.intro-text {
+		    font-size: 20px;
+		    
+		    color: #007BFF; /* Change the color to your preference */
+		    margin-bottom: 20px;
+		}
+
+
+    </style>
+</head>
+
+<body>
+    {% extends 'navbar.html' %}
+    {% block page_content %}
+    {% block body %}
+    <div class="container-fluid" id = 'home'>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="hero">
+                    <img src="{{ url_for('static', filename='images/me.jpg') }}" alt="Tech Image" class="rounded-image">
+                    <div class="quote">
+                        "Turning Dreams into Code: Where Innovation Meets Excellence. Welcome to my digital portfolio, where I transform ideas into reality, one line of code at a time."
+                    </div>
+                    <a href="#" class="blog-button">Read Our Blog</a> <!-- Moved the button here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="about" class="hero swipe">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="row content">
+                <div class="col-lg-6">
+                    <p>
+                        Hi, I'm Tech Dynamo, a passionate coder and developer. I love turning innovative ideas into reality through coding. I specialize in web development and software solutions.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-lightbulb"></i> Excellence: I strive for excellence in everything I do, ensuring top-quality solutions.</li>
+                        <li><i class="fas fa-lightbulb"></i> Innovation: I embrace innovation and stay updated with the latest technologies.</li>
+                        <li><i class="fas fa-lightbulb"></i> Integrity: I act with integrity and always do what's right for my clients and projects.</li>
+                        <li><i class="fas fa-lightbulb"></i> Customer satisfaction: Your satisfaction is my top priority, and I'm committed to your success.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                    <p>
+                        Whether you want to collaborate on a project or need a custom software solution, I'm here to help you achieve your goals. Let's connect and discuss how I can assist you.
+                    </p>
+                    <a href="#" class="btn-learn-more" style="padding: 8px 16px; margin: 10px 0;">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Me Section -->
+
+    <section id="key-questions" class="hero">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Key Questions Answered</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <p class="intro-text">Welcome to my insights! Here, I address key questions to help you understand me better. Explore my expertise, discover the problems I can solve, and learn about my abilities and passions in the digital realm. Let's dive in!</p>
+                <div class="accordion" id="questionAccordion">
+                    <!-- Question 1 -->
+                    <div class="card question-card">
+                        <div class="card-header" id="question-1-heading">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link question-btn" type="button" data-bs-toggle="collapse" data-bs-target="#question-1">
+                                    <span class="bi bi-chevron-down"></span> Why choose me
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="question-1" class="collapse" aria-labelledby="question-1-heading" data-parent="#questionAccordion">
+                            <div class="card-body">
+                                I stand out as a developer with hands-on experience. My commitment to staying up-to-date with the latest technologies ensures that you receive innovative and high-quality solutions. I prioritize excellence and customer satisfaction, making me the right choice for your digital needs.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="card question-card">
+                        <div class="card-header" id="question-2-heading">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link question-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-2">
+                                    <span class="bi bi-chevron-down"></span> What problems can I solve
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="question-2" class="collapse" aria-labelledby="question-2-heading" data-parent="#questionAccordion">
+                            <div class="card-body">
+                                I help individuals and businesses overcome digital challenges. For individuals, I offer insights and inspiration to kickstart their coding journey. For businesses, I provide innovative solutions to streamline processes and achieve digital success. Explore how I can assist you in your digital endeavors.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="card question-card">
+                        <div class="card-header" id="question-3-heading">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link question-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-3">
+                                    <span class="bi bi-chevron-down"></span> What are my abilities and hobbies
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="question-3" class="collapse" aria-labelledby="question-3-heading" data-parent="#questionAccordion">
+                            <div class="card-body">
+                                My abilities revolve around coding and development, specializing in web development and software solutions. As for hobbies, I have a deep passion for technology and coding, and I enjoy staying updated with the latest trends in the digital world.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+                <!-- Reduce the image size and add space between the dropdowns -->
+                <img src="{{ url_for('static', filename='images/background.jpg') }}" alt="Your Image" class="rounded-image-a">
+            </div>
+        </div>
+    </div>
+</section>
+<div class = 'section-title'>
+<h4 style="color: white;text-align: center;margin-top:20px">My Services</h4>
+</div>
+<section id="our-services" class="py-5">
+        <div class="container swipe">
+            <div class="row">
+        	
+            	
+                <!-- Service Box 1 -->
+                <div class="col-md-4">
+                    
+                    <div class="service-box text-center p-4">
+                        <i class="fa fa-code fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+                        <h3>Web Development</h3>
+                        <p>
+                            I create responsive and innovative websites and web applications using the latest technologies.
+                            Check out my portfolio for examples.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service Box 2 -->
+                <div class="col-md-4">
+                    <div class="service-box text-center p-4">
+                        <i class="fa fa-mobile fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+                        <h3>Mobile App Development</h3>
+                        <p>
+                            I design and develop mobile apps for Android and iOS platforms, offering user-friendly experiences.
+                            Explore my portfolio for app samples.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service Box 3 -->
+<div class="col-md-4">
+    <div class="service-box text-center p-4">
+        <i class="fa fa-database fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+        <h3>Database Management</h3>
+        <p>
+            I handle database design and management, ensuring efficient data storage and retrieval for your applications.
+            Explore my portfolio for database projects.
+        </p>
+    </div>
+</div>
+
+<!-- Service Box 4 -->
+<div class="col-md-4">
+    <div class="service-box text-center p-4">
+        <i class="fa fa-cogs fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+        <h3>Custom Solutions</h3>
+        <p>
+            I develop tailor-made software solutions to address specific business needs, improving efficiency and productivity.
+            See examples in my portfolio.
+        </p>
+    </div>
+</div>
+
+<!-- Service Box 5 -->
+<div class="col-md-4">
+    <div class="service-box text-center p-4">
+        <i class="fa fa-globe fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+        <h3>Website Maintenance</h3>
+        <p>
+            I offer ongoing website maintenance services, ensuring your web presence remains up-to-date and secure.
+            View my portfolio for maintenance work.
+        </p>
+    </div>
+</div>
+
+<!-- Service Box 6 -->
+<div class="col-md-4">
+    <div class="service-box text-center p-4">
+        <i class="fa fa-tasks fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+        <h3>Task Automation</h3>
+        <p>
+            I automate repetitive tasks and processes, saving time and reducing manual effort in your workflow.
+            Check out my portfolio for automation projects.
+        </p>
+    </div>
+</div>
+
+<!-- Service Box 7 -->
+<div class="col-md-4">
+    <div class="service-box text-center p-4">
+        <i class="fa fa-code-branch fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+        <h3>Version Control</h3>
+        <p>
+            I implement version control systems to manage code changes, ensuring code quality and collaboration.
+            Explore my portfolio for version control projects.
+        </p>
+    </div>
+</div>
+
+<!-- Service Box 8 -->
+<div class="col-md-4">
+    <div class="service-box text-center p-4">
+        <i class="fa fa-server fa-3x mb-3"></i> <!-- Replace with your desired icon class -->
+        <h3>Server Management</h3>
+        <p>
+            I handle server setup, configuration, and maintenance, ensuring reliable hosting for your applications.
+            See my portfolio for server management work.
+        </p>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+
+    </section>
+    <section id="contact" class="bg-light py-5">
+        <div class="container swipe">
+            <div class="row">
+                <!-- Contact Details -->
+                <div class="col-lg-4">
+                    <h2>Contact Us</h2>
+                    <p>We'd love to hear from you!</p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> No 14 st peter avenue, awka,anambra
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i> 08119730652
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i> dynamocode21@email.com
+                        </li>
+                        <li>
+                            <i class="fab fa-facebook"></i> <a href="https://www.facbook.com/">Facebook</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i> 08119730652
+                        </li>
+                        <li>
+                            <i class="fab fa-github"></i> <a href="https//www.github.com/dynamocode1">GitHub</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <h2>Send Us a Message</h2>
+                    <form method="POST" action="/contactus">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" name='name'required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" name= 'body' required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="subscribe" class="bg-light py-5">
+        <div class="container swipe">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>Stay updated with our latest news and updates by subscribing to our newsletter.</p>
+                    <form method="POST" action="/subscribe">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email" aria-describedby="subscribe-btn" name = "email"required>
+                            <input class="btn btn-primary" type="submit" id="subscribe-btn" value="Subscribe">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+     <footer class="bg-black text-white">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Unlocking Possibilities with Dynamocode: Your Bridge to the Future of Technology</br> We repecialize on web development,app development and training</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <p><i class="bi bi-geo-alt-fill"></i>  No 14 st peter avenue, awka,anambra</p>
+                    <p><i class="bi bi-telephone-fill"></i> Phone: 08119021784</p>
+                    <p><i class="bi bi-envelope-fill"></i> Email: dynamocode21@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% endblock %}
+    {% endblock %}
+</body>
+</html>
